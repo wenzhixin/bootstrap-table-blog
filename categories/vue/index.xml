@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vue on Bootstrap Table Blog</title>
+    <link>http://blog.bootstrap-table.com/categories/vue/</link>
+    <description>Recent content in Vue on Bootstrap Table Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>blog.bootstrap-table.com</copyright>
+    <lastBuildDate>Sat, 10 Aug 2019 20:32:40 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.bootstrap-table.com/categories/vue/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Formatter Use Vue Component</title>
+      <link>http://blog.bootstrap-table.com/2019/08/10/formatter-use-vue-component/</link>
+      <pubDate>Sat, 10 Aug 2019 20:32:40 +0800</pubDate>
+      
+      <guid>http://blog.bootstrap-table.com/2019/08/10/formatter-use-vue-component/</guid>
+      <description>Starting with v1.15.2, the Bootstrap Table adds support for the Bootstrap Table Vue component.
+We can use the two column options formatter and events to implement custom display and event listen for columns:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63  &amp;lt;template&amp;gt; &amp;lt;BootstrapTable :columns=&amp;#34;columns&amp;#34; :data=&amp;#34;data&amp;#34; :options=&amp;#34;options&amp;#34; /&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; import BootstrapTable from &amp;#39;bootstrap-table/dist/bootstrap-table-vue.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Formatter Use Vue Component - Bootstrap Table Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="wenzhixin" /><meta name="description" content="Starting with v1.15.2, the Bootstrap Table adds support for the Bootstrap Table Vue component.
+We can use the two column options formatter and events to implement custom display and event listen for columns:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63  &amp;lt;template&amp;gt; &amp;lt;BootstrapTable :columns=&amp;#34;columns&amp;#34; :data=&amp;#34;data&amp;#34; :options=&amp;#34;options&amp;#34; /&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; import BootstrapTable from &amp;#39;bootstrap-table/dist/bootstrap-table-vue." /><meta name="keywords" content="Bootstrap Table, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://blog.bootstrap-table.com/2019/08/10/formatter-use-vue-component/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Formatter Use Vue Component" />
+<meta property="og:description" content="Starting with v1.15.2, the Bootstrap Table adds support for the Bootstrap Table Vue component.
+We can use the two column options formatter and events to implement custom display and event listen for columns:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63  &lt;template&gt; &lt;BootstrapTable :columns=&#34;columns&#34; :data=&#34;data&#34; :options=&#34;options&#34; /&gt; &lt;/template&gt; &lt;script&gt; import BootstrapTable from &#39;bootstrap-table/dist/bootstrap-table-vue." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.bootstrap-table.com/2019/08/10/formatter-use-vue-component/" />
+<meta property="article:published_time" content="2019-08-10T20:32:40+08:00" />
+<meta property="article:modified_time" content="2019-08-10T20:32:40+08:00" />
+<meta itemprop="name" content="Formatter Use Vue Component">
+<meta itemprop="description" content="Starting with v1.15.2, the Bootstrap Table adds support for the Bootstrap Table Vue component.
+We can use the two column options formatter and events to implement custom display and event listen for columns:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63  &lt;template&gt; &lt;BootstrapTable :columns=&#34;columns&#34; :data=&#34;data&#34; :options=&#34;options&#34; /&gt; &lt;/template&gt; &lt;script&gt; import BootstrapTable from &#39;bootstrap-table/dist/bootstrap-table-vue.">
+
+
+<meta itemprop="datePublished" content="2019-08-10T20:32:40&#43;08:00" />
+<meta itemprop="dateModified" content="2019-08-10T20:32:40&#43;08:00" />
+<meta itemprop="wordCount" content="708">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Formatter Use Vue Component"/>
+<meta name="twitter:description" content="Starting with v1.15.2, the Bootstrap Table adds support for the Bootstrap Table Vue component.
+We can use the two column options formatter and events to implement custom display and event listen for columns:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63  &lt;template&gt; &lt;BootstrapTable :columns=&#34;columns&#34; :data=&#34;data&#34; :options=&#34;options&#34; /&gt; &lt;/template&gt; &lt;script&gt; import BootstrapTable from &#39;bootstrap-table/dist/bootstrap-table-vue."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="/css/custom.css">
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Bootstrap Table Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://blog-cn.bootstrap-table.com">
+        <li class="mobile-menu-item">中文</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Bootstrap Table Blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog-cn.bootstrap-table.com">中文</a>
+      </li>
+  </ul>
+</nav>
+
+<div id="codefund"></div>
+<script src="https://codefund.io/properties/292/funder.js" async="async"></script>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Formatter Use Vue Component</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-08-10 </span>
+        <div class="post-category">
+            <a href="/categories/vue/"> Vue </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+    <div class="post-content">
+      <p>Starting with v1.15.2, the Bootstrap Table adds support for the Bootstrap Table Vue component.</p>
+
+<p>We can use the two column options <code>formatter</code> and <code>events</code> to implement custom display and event listen for columns:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">BootstrapTable</span>
+    <span class="na">:columns</span><span class="o">=</span><span class="s">&#34;columns&#34;</span>
+    <span class="na">:data</span><span class="o">=</span><span class="s">&#34;data&#34;</span>
+    <span class="na">:options</span><span class="o">=</span><span class="s">&#34;options&#34;</span>
+  <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="k">import</span> <span class="nx">BootstrapTable</span> <span class="nx">from</span> <span class="s1">&#39;bootstrap-table/dist/bootstrap-table-vue.esm.js&#39;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">BootstrapTable</span>
+  <span class="p">},</span>
+  <span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Item ID&#39;</span><span class="p">,</span>
+          <span class="nx">field</span><span class="o">:</span> <span class="s1">&#39;id&#39;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nx">field</span><span class="o">:</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+          <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Item Name&#39;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nx">field</span><span class="o">:</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span>
+          <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Item Price&#39;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nx">field</span><span class="o">:</span> <span class="s1">&#39;actions&#39;</span><span class="p">,</span>
+          <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Actions&#39;</span><span class="p">,</span>
+          <span class="nx">formatter</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s1">&#39;&lt;button class=&#34;btn btn-secondary&#34;&gt;Click&lt;/button&gt;&#39;</span>
+          <span class="p">},</span>
+          <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s1">&#39;click .btn&#39;</span><span class="o">:</span> <span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">row</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+              <span class="k">this</span><span class="p">.</span><span class="nx">clickRow</span><span class="p">(</span><span class="nx">row</span><span class="p">)</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Item 1&#39;</span><span class="p">,</span>
+          <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;$1&#39;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">search</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">showColumns</span><span class="o">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">clickRow</span> <span class="p">(</span><span class="nx">row</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">row</span><span class="p">))</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Here&rsquo;s an online example: <a href="https://live.bootstrap-table.com/code/wenzhixin/440">https://live.bootstrap-table.com/code/wenzhixin/440</a></p>
+
+<p>As you can see, the <code>clickRow</code> method is called when we click the button, but we are using the event binding method of <code>jQuery</code>.</p>
+
+<p>With <code>vue</code>, you might wonder if I can bind using the event of <code>vue</code>?</p>
+
+<p>Such as:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">formatter</span><span class="o">:</span> <span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">row</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s1">&#39;&lt;button class=&#34;btn btn-secondary&#34; @click=&#34;clickRow(row)&#34;&gt;Click&lt;/button&gt;&#39;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>The answer is no, because the event of <code>vue</code> is not handled here.</p>
+
+<p>In addition, we may use the UI component of <code>vue</code>, for example <a href="https://bootstrap-vue.js.org/">BootstrapVue
+</a>, then you might wonder, can the <code>formatter</code> here use the <code>vue</code> component?</p>
+
+<p>Such as:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">formatter</span><span class="o">:</span> <span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">row</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s1">&#39;&lt;b-button @click=&#34;clickRow(row)&#34;&gt;Click&lt;/b-button&gt;&#39;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>Of course, this is also not supported. What should we do?</p>
+
+<p>For these two questions, I conducted in-depth research and experimentation. Fortunately, a viable solution was found.</p>
+
+<p>The technical principle is mainly to save the <code>vue</code> component to a custom variable, and then return a simple <code>div</code> containing only <code>class</code>. After the table is rendered, we will convert it to the corresponding <code>vue</code> Component.</p>
+
+<p>We have added a method:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">vueFormatter</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="sb">`_vue_formatter_</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">vueFormatters</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb">`</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">vueFormatters</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+    <span class="nx">el</span><span class="o">:</span> <span class="sb">`.</span><span class="si">${</span><span class="nx">key</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nx">key</span><span class="p">,</span>
+    <span class="p">...</span><span class="nx">obj</span>
+  <span class="p">})</span>
+  <span class="k">return</span> <span class="sb">`&lt;div class=&#34;</span><span class="si">${</span><span class="nx">key</span><span class="si">}</span><span class="sb">&#34;/&gt;`</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>You can see that we use the <code>vueFormatters</code> variable to save the <code>vue</code> component information for all columns.</p>
+
+<p>We know that the rendered event of the table is <code>onPostBody</code>, which we listen to and render the saved <code>vue</code> component information:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">vueFormatterPostBody</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">vueFormatters</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">vueFormatters</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="nx">formatter</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">vueFormatters</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="nx">formatter</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">new</span> <span class="nx">Vue</span><span class="p">(</span><span class="nx">formatter</span><span class="p">)</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">vueFormatters</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>Considering that we will reuse it often, we create a <code>mixins/table.js</code> file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue/dist/vue.esm.js&#39;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">vueFormatters</span><span class="o">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+
+  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">vueFormatter</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="sb">`_vue_formatter_</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">vueFormatters</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb">`</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">vueFormatters</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="sb">`.</span><span class="si">${</span><span class="nx">key</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="nx">key</span><span class="p">,</span>
+        <span class="p">...</span><span class="nx">obj</span>
+      <span class="p">})</span>
+      <span class="k">return</span> <span class="sb">`&lt;div class=&#34;</span><span class="si">${</span><span class="nx">key</span><span class="si">}</span><span class="sb">&#34;/&gt;`</span>
+    <span class="p">},</span>
+
+    <span class="nx">vueFormatterPostBody</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">vueFormatters</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span>
+      <span class="p">}</span>
+
+      <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">vueFormatters</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">const</span> <span class="nx">formatter</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">vueFormatters</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="nx">formatter</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span> <span class="p">{</span>
+          <span class="k">new</span> <span class="nx">Vue</span><span class="p">(</span><span class="nx">formatter</span><span class="p">)</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">vueFormatters</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>How to use:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">formatter</span><span class="o">:</span> <span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">row</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">vueFormatter</span><span class="p">({</span>
+    <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;b-button @click=&#34;clickRow(row)&#34;&gt;Click&lt;/b-button&gt;&#39;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span> <span class="nx">row</span> <span class="p">},</span>
+    <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">clickRow</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">clickRow</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">BootstrapTable</span>
+  <span class="na">ref</span><span class="o">=</span><span class="s">&#34;table&#34;</span>
+  <span class="na">:columns</span><span class="o">=</span><span class="s">&#34;columns&#34;</span>
+  <span class="na">:data</span><span class="o">=</span><span class="s">&#34;data&#34;</span>
+  <span class="na">:options</span><span class="o">=</span><span class="s">&#34;options&#34;</span>
+  <span class="err">@</span><span class="na">onPostBody</span><span class="o">=</span><span class="s">&#34;vueFormatterPostBody&#34;</span>
+<span class="p">/&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Online example: <a href="https://live.bootstrap-table.com/code/wenzhixin/441">https://live.bootstrap-table.com/code/wenzhixin/441</a></p>
+
+<p><strong>Things to note:</strong></p>
+
+<p>Since <code>new Vue({ template })</code> requires a <code>full</code> build version, if used in webpack, you need to modify all the <code>vue</code> import:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue/dist/vue.esm.js&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>Source code: <a href="https://github.com/wenzhixin/bootstrap-table-examples/tree/develop/vue-starter">https://github.com/wenzhixin/bootstrap-table-examples/tree/develop/vue-starter</a></p>
+
+<p>Finally, hope this article can help you.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">wenzhixin</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-08-10
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'wenzhixin';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wenzhixin2010@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/1531096/wenyi" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/wenzhixin2010" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/wenzhixin2010" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://github.com/wenzhixin" class="iconfont icon-github" title="github"></a>
+  <a href="http://blog.bootstrap-table.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">blog.bootstrap-table.com</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-36708951-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

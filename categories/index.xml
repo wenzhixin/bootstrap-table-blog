@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Bootstrap Table Blog</title>
+    <link>http://blog.bootstrap-table.com/categories/</link>
+    <description>Recent content in Categories on Bootstrap Table Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>blog.bootstrap-table.com</copyright>
+    <lastBuildDate>Sat, 10 Aug 2019 20:32:40 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.bootstrap-table.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vue</title>
+      <link>http://blog.bootstrap-table.com/categories/vue/</link>
+      <pubDate>Sat, 10 Aug 2019 20:32:40 +0800</pubDate>
+      
+      <guid>http://blog.bootstrap-table.com/categories/vue/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

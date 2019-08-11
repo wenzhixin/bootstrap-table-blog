@@ -1,0 +1,40 @@
+<?xml-stylesheet type="text/xsl" href="http://blog.bootstrap-table.com/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://blog.bootstrap-table.com/</loc>
+    <lastmod>2019-08-10T20:32:40+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.bootstrap-table.com/categories/</loc>
+    <lastmod>2019-08-10T20:32:40+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.bootstrap-table.com/2019/08/10/formatter-use-vue-component/</loc>
+    <lastmod>2019-08-10T20:32:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.bootstrap-table.com/post/</loc>
+    <lastmod>2019-08-10T20:32:40+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.bootstrap-table.com/categories/vue/</loc>
+    <lastmod>2019-08-10T20:32:40+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.bootstrap-table.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
