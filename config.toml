@@ -47,7 +47,7 @@ copyright = "blog.bootstrap-table.com"            # default: author.name ↓    
   name = "中文"
   weight = 25
   identifier = "cn"
-  url = "https://blog-cn.bootstrap-table.com"
+  url = "https://blog.wenzhixin.net.cn"
 
 [permalinks]
   post = "/:year/:month/:day/:filename"
