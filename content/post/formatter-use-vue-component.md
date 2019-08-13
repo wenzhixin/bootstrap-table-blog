@@ -217,6 +217,16 @@ Since `new Vue({ template })` requires a `full` build version, if used in webpac
 import Vue from 'vue/dist/vue.esm.js'
 ```
 
+Or we can alias Vue import:
+
+```js
+resolve: {
+  alias: {
+    vue$: 'vue/dist/vue.esm.js'
+  }
+}
+```
+
 Source code: https://github.com/wenzhixin/bootstrap-table-examples/tree/develop/vue-starter
 
 Finally, hope this article can help you.
