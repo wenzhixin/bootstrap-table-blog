@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>blog.bootstrap-table.com</copyright>
-    <lastBuildDate>Sat, 10 Aug 2019 20:32:40 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 22 Sep 2019 22:42:40 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.bootstrap-table.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Use Bootstrap Table in Webpack</title>
+      <link>http://blog.bootstrap-table.com/2019/09/22/bootstrap-table-in-webpack/</link>
+      <pubDate>Sun, 22 Sep 2019 22:42:40 +0800</pubDate>
+      
+      <guid>http://blog.bootstrap-table.com/2019/09/22/bootstrap-table-in-webpack/</guid>
+      <description>Because I saw the problem saying using the latest version of Bootstrap Table in Webpack will fail, I tried how to use Bootstrap Table in Webpack from scratch.
+First, according to the Getting Started documentation of Webpack, we created a test project webpack-bootstrap-table, here we use http-server to start the service:
+1 2 3 4  mkdir webpack-bootstrap-table cd webpack-bootstrap-table yarn init -y yarn add webpack webpack-cli http-server -D   Next, add bootstrap-table and the required dependencies jquery and bootstrap:</description>
+    </item>
     
     <item>
       <title>Formatter Use Vue Component</title>

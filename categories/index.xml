@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>blog.bootstrap-table.com</copyright>
-    <lastBuildDate>Sat, 10 Aug 2019 20:32:40 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 22 Sep 2019 22:42:40 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.bootstrap-table.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>BootstrapTable</title>
+      <link>http://blog.bootstrap-table.com/categories/bootstraptable/</link>
+      <pubDate>Sun, 22 Sep 2019 22:42:40 +0800</pubDate>
+      
+      <guid>http://blog.bootstrap-table.com/categories/bootstraptable/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Vue</title>
