@@ -6,13 +6,13 @@ categories: [BootstrapTable]
 
 Because I saw the problem saying [using the latest version of Bootstrap Table in Webpack will fail](https://github.com/wenzhixin/bootstrap-table/issues/4597), I tried how to use Bootstrap Table in Webpack from scratch.
 
-First, according to the [Getting Started](https://webpack.js.org/guides/getting-started/) documentation of Webpack, we created a test project `webpack-bootstrap-table`, here we use `http-server` to start the service:
+First, according to the [Getting Started](https://webpack.js.org/guides/getting-started/) documentation of Webpack, we created a test project `webpack-bootstrap-table`, here we use `webpack-dev-server` to start the service:
 
 ```bash
 mkdir webpack-bootstrap-table
 cd webpack-bootstrap-table
 yarn init -y
-yarn add webpack webpack-cli http-server -D
+yarn add webpack webpack-cli webpack-dev-server -D
 ```
 
 Next, add `bootstrap-table` and the required dependencies `jquery` and `bootstrap`:
@@ -107,11 +107,14 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
     ],
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist')
   }
 }
 ```
 
-And then add `build` and `server` scripts in the **package.json** file:
+And then add `build` and `dev` scripts in the **package.json** file:
 
 ```json
 {
@@ -121,10 +124,10 @@ And then add `build` and `server` scripts in the **package.json** file:
   "license": "MIT",
   "devDependencies": {
     "css-loader": "^3.2.0",
-    "http-server": "^0.11.1",
     "style-loader": "^1.0.0",
     "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -134,15 +137,15 @@ And then add `build` and `server` scripts in the **package.json** file:
   },
   "scripts": {
     "build": "webpack",
-    "server": "http-server dist"
+    "dev": "webpack-dev-server --inline --progress"
   }
 }
 ```
 
-Build and run the server:
+Run the server (or `yarn build`):
 
 ```
-yarn build && yarn server
+yarn dev
 ```
 
 Open the browser and it will work.
