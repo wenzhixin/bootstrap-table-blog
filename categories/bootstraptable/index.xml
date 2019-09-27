@@ -19,8 +19,8 @@
       
       <guid>http://blog.bootstrap-table.com/2019/09/22/bootstrap-table-in-webpack/</guid>
       <description>Because I saw the problem saying using the latest version of Bootstrap Table in Webpack will fail, I tried how to use Bootstrap Table in Webpack from scratch.
-First, according to the Getting Started documentation of Webpack, we created a test project webpack-bootstrap-table, here we use http-server to start the service:
-1 2 3 4  mkdir webpack-bootstrap-table cd webpack-bootstrap-table yarn init -y yarn add webpack webpack-cli http-server -D   Next, add bootstrap-table and the required dependencies jquery and bootstrap:</description>
+First, according to the Getting Started documentation of Webpack, we created a test project webpack-bootstrap-table, here we use webpack-dev-server to start the service:
+1 2 3 4  mkdir webpack-bootstrap-table cd webpack-bootstrap-table yarn init -y yarn add webpack webpack-cli webpack-dev-server -D   Next, add bootstrap-table and the required dependencies jquery and bootstrap:</description>
     </item>
     
   </channel>
