@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Use editable extension of Bootstrap Table in Bootstrap v4 - Bootstrap Table Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="wenzhixin" /><meta name="description" content="Since x-editable has not been updated for a long time, so Bootstrap v4 is not supported, but many people ask how to use editable in v4 of Bootstrap Table. Here we have tried on how to use it.
+You can see that someone has submitted PR and added support for Bootstrap v4. Here we use https://github.com/Talv/x-editable/tree/develop directly. Since it is not published to npm, we can only use the link on GitHub directly, here we use the jsdelivr tool." /><meta name="keywords" content="Bootstrap Table, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://blog.bootstrap-table.com/2019/10/06/use-editable-in-bootstrap-v4/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Use editable extension of Bootstrap Table in Bootstrap v4" />
+<meta property="og:description" content="Since x-editable has not been updated for a long time, so Bootstrap v4 is not supported, but many people ask how to use editable in v4 of Bootstrap Table. Here we have tried on how to use it.
+You can see that someone has submitted PR and added support for Bootstrap v4. Here we use https://github.com/Talv/x-editable/tree/develop directly. Since it is not published to npm, we can only use the link on GitHub directly, here we use the jsdelivr tool." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.bootstrap-table.com/2019/10/06/use-editable-in-bootstrap-v4/" />
+<meta property="article:published_time" content="2019-10-06T07:43:40&#43;08:00"/>
+<meta property="article:modified_time" content="2019-10-06T07:43:40&#43;08:00"/>
+
+<meta itemprop="name" content="Use editable extension of Bootstrap Table in Bootstrap v4">
+<meta itemprop="description" content="Since x-editable has not been updated for a long time, so Bootstrap v4 is not supported, but many people ask how to use editable in v4 of Bootstrap Table. Here we have tried on how to use it.
+You can see that someone has submitted PR and added support for Bootstrap v4. Here we use https://github.com/Talv/x-editable/tree/develop directly. Since it is not published to npm, we can only use the link on GitHub directly, here we use the jsdelivr tool.">
+
+
+<meta itemprop="datePublished" content="2019-10-06T07:43:40&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-06T07:43:40&#43;08:00" />
+<meta itemprop="wordCount" content="175">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Use editable extension of Bootstrap Table in Bootstrap v4"/>
+<meta name="twitter:description" content="Since x-editable has not been updated for a long time, so Bootstrap v4 is not supported, but many people ask how to use editable in v4 of Bootstrap Table. Here we have tried on how to use it.
+You can see that someone has submitted PR and added support for Bootstrap v4. Here we use https://github.com/Talv/x-editable/tree/develop directly. Since it is not published to npm, we can only use the link on GitHub directly, here we use the jsdelivr tool."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="/css/custom.css">
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Bootstrap Table Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://blog.wenzhixin.net.cn">
+        <li class="mobile-menu-item">中文</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Bootstrap Table Blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.wenzhixin.net.cn">中文</a>
+      </li>
+  </ul>
+</nav>
+
+<div id="codefund"></div>
+<script src="https://codefund.io/properties/291/funder.js" async="async"></script>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Use editable extension of Bootstrap Table in Bootstrap v4</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-10-06 </span>
+        <div class="post-category">
+            <a href="/categories/bootstraptable/"> BootstrapTable </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+    <div class="post-content">
+      <p>Since x-editable has not been updated for a long time, so <a href="https://github.com/wenzhixin/bootstrap-table/issues/3705">Bootstrap v4 is not supported</a>, but many people ask how to use editable in v4 of Bootstrap Table. Here we have tried on how to use it.</p>
+
+<p>You can see that someone has submitted PR and added support for Bootstrap v4. Here we use <a href="https://github.com/Talv/x-editable/tree/develop">https://github.com/Talv/x-editable/tree/develop</a> directly. Since it is not published to npm, we can only use the link on GitHub directly, here we use the <a href="https://www.jsdelivr.com">jsdelivr</a> tool. The files we need are in this directory <a href="https://cdn.jsdelivr.net/gh/Talv/x-editable@develop/dist/bootstrap4-editable/">bootstrap4-editable</a>.</p>
+
+<p>The files that need to be imported include:</p>
+
+<ul>
+<li>bootstrap4-editable/css/bootstrap-editable.css</li>
+<li>bootstrap4-editable/js/bootstrap-editable.min.js</li>
+<li>extensions/editable/bootstrap-table-editable.min.js</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/gh/Talv/x-editable@develop/dist/bootstrap4-editable/css/bootstrap-editable.css&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://unpkg.com/bootstrap-table@1.15.4/dist/bootstrap-table.min.css&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/gh/Talv/x-editable@develop/dist/bootstrap4-editable/js/bootstrap-editable.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://unpkg.com/bootstrap-table@1.15.4/dist/bootstrap-table.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://unpkg.com/bootstrap-table@1.15.4/dist/extensions/editable/bootstrap-table-editable.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">table</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;table&#34;</span>
+  <span class="na">data-pagination</span><span class="o">=</span><span class="s">&#34;true&#34;</span>
+  <span class="na">data-show-export</span><span class="o">=</span><span class="s">&#34;true&#34;</span>
+  <span class="na">data-url</span><span class="o">=</span><span class="s">&#34;json/data1.json&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">th</span> <span class="na">data-field</span><span class="o">=</span><span class="s">&#34;id&#34;</span><span class="p">&gt;</span>ID<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">th</span> <span class="na">data-field</span><span class="o">=</span><span class="s">&#34;name&#34;</span> <span class="na">data-editable</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="p">&gt;</span>Item Name<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">th</span> <span class="na">data-field</span><span class="o">=</span><span class="s">&#34;price&#34;</span> <span class="na">data-editable</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="p">&gt;</span>Item Price<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#table&#39;</span><span class="p">).</span><span class="nx">bootstrapTable</span><span class="p">()</span>
+  <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Online example: <a href="https://live.bootstrap-table.com/code/wenzhixin/854">https://live.bootstrap-table.com/code/wenzhixin/854</a></p>
+
+<p>It can be seen that it is now working well.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">wenzhixin</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-10-06
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/2019/09/22/bootstrap-table-in-webpack/">
+            <span class="next-text nav-default">Use Bootstrap Table in Webpack</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'wenzhixin';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wenzhixin2010@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/1531096/wenyi" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/wenzhixin2010" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/wenzhixin2010" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://github.com/wenzhixin" class="iconfont icon-github" title="github"></a>
+  <a href="http://blog.bootstrap-table.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">blog.bootstrap-table.com</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-36708951-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

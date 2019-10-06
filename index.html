@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="http://blog.bootstrap-table.com/" />
@@ -45,7 +45,8 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://blog.bootstrap-table.com/" />
 
-<meta property="og:updated_time" content="2019-09-22T22:42:40+08:00" />
+<meta property="og:updated_time" content="2019-10-06T07:43:40&#43;08:00"/>
+
 <meta itemprop="name" content="Bootstrap Table Blog">
 <meta itemprop="description" content="The blog of bootstrap table.">
 
@@ -120,19 +121,68 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/">Posts</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/2019/10/06/use-editable-in-bootstrap-v4/">Use editable extension of Bootstrap Table in Bootstrap v4</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2019-09-22 </span>
-      
+      <span class="post-time"> 2019-10-06 </span>
+      <div class="post-category">
+          <a href="/categories/bootstraptable/"> BootstrapTable </a>
+          </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      
+      Since x-editable has not been updated for a long time, so Bootstrap v4 is not supported, but many people ask how to use editable in v4 of Bootstrap Table. Here we have tried on how to use it.
+You can see that someone has submitted PR and added support for Bootstrap v4. Here we use https://github.com/Talv/x-editable/tree/develop directly. Since it is not published to npm, we can only use the link on GitHub directly, here we use the jsdelivr tool.
     </div>
     <div class="read-more">
-      <a href="/post/" class="read-more-link">Read more..</a>
+      <a href="/2019/10/06/use-editable-in-bootstrap-v4/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2019/09/22/bootstrap-table-in-webpack/">Use Bootstrap Table in Webpack</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-09-22 </span>
+      <div class="post-category">
+          <a href="/categories/bootstraptable/"> BootstrapTable </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Because I saw the problem saying using the latest version of Bootstrap Table in Webpack will fail, I tried how to use Bootstrap Table in Webpack from scratch.
+First, according to the Getting Started documentation of Webpack, we created a test project webpack-bootstrap-table, here we use webpack-dev-server to start the service:
+1 2 3 4  mkdir webpack-bootstrap-table cd webpack-bootstrap-table yarn init -y yarn add webpack webpack-cli webpack-dev-server -D   Next, add bootstrap-table and the required dependencies jquery and bootstrap:
+    </div>
+    <div class="read-more">
+      <a href="/2019/09/22/bootstrap-table-in-webpack/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2019/08/10/formatter-use-vue-component/">Formatter Use Vue Component</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-08-10 </span>
+      <div class="post-category">
+          <a href="/categories/vue/"> Vue </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Starting with v1.15.2, the Bootstrap Table adds support for the Bootstrap Table Vue component.
+We can use the two column options formatter and events to implement custom display and event listen for columns:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63  &lt;template&gt; &lt;BootstrapTable :columns=&#34;columns&#34; :data=&#34;data&#34; :options=&#34;options&#34; /&gt; &lt;/template&gt; &lt;script&gt; import BootstrapTable from &#39;bootstrap-table/dist/bootstrap-table-vue.
+    </div>
+    <div class="read-more">
+      <a href="/2019/08/10/formatter-use-vue-component/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>

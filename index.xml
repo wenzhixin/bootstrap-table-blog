@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>blog.bootstrap-table.com</copyright>
-    <lastBuildDate>Sun, 22 Sep 2019 22:42:40 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 06 Oct 2019 07:43:40 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.bootstrap-table.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Use editable extension of Bootstrap Table in Bootstrap v4</title>
+      <link>http://blog.bootstrap-table.com/2019/10/06/use-editable-in-bootstrap-v4/</link>
+      <pubDate>Sun, 06 Oct 2019 07:43:40 +0800</pubDate>
+      
+      <guid>http://blog.bootstrap-table.com/2019/10/06/use-editable-in-bootstrap-v4/</guid>
+      <description>Since x-editable has not been updated for a long time, so Bootstrap v4 is not supported, but many people ask how to use editable in v4 of Bootstrap Table. Here we have tried on how to use it.
+You can see that someone has submitted PR and added support for Bootstrap v4. Here we use https://github.com/Talv/x-editable/tree/develop directly. Since it is not published to npm, we can only use the link on GitHub directly, here we use the jsdelivr tool.</description>
+    </item>
     
     <item>
       <title>Use Bootstrap Table in Webpack</title>
